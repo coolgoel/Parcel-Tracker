@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GuardHomePage"></activity>
+        <activity android:name=".StudentHomePage"></activity>
+        <activity android:name=".StudentLoginActivity" />
+        <activity android:name=".StudentRegisterActivity" />
+        <activity android:name=".GuardHomePage" />
         <activity android:name=".GuardLoginActivity" />
         <activity android:name=".GuardRegisterAcivity" />
         <activity android:name=".StudentActivity" />
