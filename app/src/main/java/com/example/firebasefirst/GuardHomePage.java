@@ -21,9 +21,9 @@ import java.util.HashMap;
 
 public class GuardHomePage extends AppCompatActivity {
 
-    private Button Logout;
+    private Button logout;
     private Button add_parcel;
-    private Button Gexit;
+    private Button exit;
 
     private EditText room_no;
     private EditText hostel;
@@ -35,17 +35,16 @@ public class GuardHomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guard_home_page);
 
-        Logout = findViewById(R.id.Glogout);
-        add_parcel = findViewById(R.id.add_parcel);
-        Gexit = findViewById(R.id.GExit);
-
-        room_no = findViewById(R.id.parcel_room);
-        hostel = findViewById(R.id.hostel_name);
+        logout      = findViewById(R.id.g_logout);
+        add_parcel  = findViewById(R.id.g_add_parcel);
+        exit        = findViewById(R.id.g_exit);
+        room_no     = findViewById(R.id.g_parcel_room);
+        hostel      = findViewById(R.id.g_hostel_name);
 
         auth = FirebaseAuth.getInstance();
         final String email = auth.getCurrentUser().getEmail();
 
-        Logout.setOnClickListener(new View.OnClickListener() {
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();

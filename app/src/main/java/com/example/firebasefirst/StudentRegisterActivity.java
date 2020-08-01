@@ -22,10 +22,10 @@ import java.util.HashSet;
 
 public class StudentRegisterActivity extends AppCompatActivity {
 
-    private EditText s_webmail;
-    private EditText s_roll;
+    private EditText webmail;
+    private EditText roll;
 
-    private Button s_register;
+    private Button register;
 
     private FirebaseAuth auth;
 
@@ -34,19 +34,19 @@ public class StudentRegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_register);
 
-        s_webmail       = findViewById(R.id.semail);
-        s_roll          = findViewById(R.id.sroll);
-        s_register      = findViewById(R.id.sregister);
+        webmail       = findViewById(R.id.SEmail);
+        roll          = findViewById(R.id.SRoll);
+        register      = findViewById(R.id.SRegister);
 
-        auth = FirebaseAuth.getInstance();
+        auth          = FirebaseAuth.getInstance();
 
-        s_register.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = s_webmail.getText().toString();
-                String roll = s_roll.getText().toString();
+                String email = webmail.getText().toString();
+                String roll_no = roll.getText().toString();
 
-                student_register(email, roll);
+                student_register(email, roll_no);
             }
         });
     }

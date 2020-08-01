@@ -17,7 +17,7 @@ public class GuardLoginActivity extends AppCompatActivity {
 
     private EditText gid;
     private EditText gphone;
-    private Button GLogin;
+    private Button glogin;
 
     private FirebaseAuth auth;
     @Override
@@ -27,11 +27,11 @@ public class GuardLoginActivity extends AppCompatActivity {
 
         gid     = findViewById(R.id.gid_login);
         gphone  = findViewById(R.id.gphone_login);
-        GLogin   = findViewById(R.id.glogin);
+        glogin  = findViewById(R.id.g_login);
 
         auth    = FirebaseAuth.getInstance();
 
-        GLogin.setOnClickListener(new View.OnClickListener() {
+        glogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txt_gid = gid.getText().toString();

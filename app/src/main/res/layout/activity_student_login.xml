@@ -8,10 +8,11 @@
 
     <EditText
         android:id="@+id/s_login_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="256dp"
         android:ems="10"
+        android:hint="Webmail (including iitg.ac.in)"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -20,10 +21,11 @@
 
     <EditText
         android:id="@+id/s_login_roll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="Enter Your Roll No."
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -31,14 +33,15 @@
         app:layout_constraintTop_toBottomOf="@+id/s_login_email" />
 
     <Button
-        android:id="@+id/slogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/s_login"
+        android:layout_width="117dp"
+        android:layout_height="42dp"
+        android:background="#19e9f7"
         android:text="Login"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/s_login_roll"
-        app:layout_constraintVertical_bias="0.171" />
+        app:layout_constraintVertical_bias="0.15" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,26 +18,61 @@ import com.google.firebase.database.ValueEventListener;
 
 public class StudentHomePage extends AppCompatActivity {
 
-    private EditText s_hostel;
-    private EditText s_room;
+    private EditText hostel;
+    private EditText room;
 
-    private Button s_check;
+    private Button check;
+    private Button collected;
+    private Button get_details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home_page);
 
-        s_hostel = findViewById(R.id.s_hostel_name);
-        s_room = findViewById(R.id.s_room_no);
-        s_check = findViewById(R.id.s_check);
+        hostel      = findViewById(R.id.s_hostel_name);
+        room        = findViewById(R.id.s_room_no);
+        check       = findViewById(R.id.s_check);
+        collected   = findViewById(R.id.s_collected);
+        get_details = findViewById(R.id.s_get_details);
 
-        s_check.setOnClickListener(new View.OnClickListener() {
+        check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String hostel = s_hostel.getText().toString().toLowerCase();
-                String room = s_room.getText().toString().toLowerCase();
-                get_status(hostel, room);
+                String hostel_ = hostel.getText().toString().toLowerCase();
+                String room_ = room.getText().toString().toLowerCase();
+                get_status(hostel_, room_);
+            }
+        });
+
+        collected.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String hostel_ = hostel.getText().toString().toLowerCase();
+                String room_ = room.getText().toString().toLowerCase();
+                change_status(hostel_, room_);
+            }
+        });
+    }
+
+    private void change_status(String hostel, String room) {
+        final DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child(hostel).child(room).child("Status");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Object status = dataSnapshot.getValue();
+                Object present = true;
+                if(status == present) {
+                    ref.setValue(false);
+                    Toast.makeText(StudentHomePage.this, "Parcel Status Changed", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(StudentHomePage.this, "No pending parcels to collect!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(StudentHomePage.this, "No pending parcels to collect!", Toast.LENGTH_SHORT).show();
             }
         });
     }

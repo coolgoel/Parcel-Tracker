@@ -9,29 +9,27 @@ import android.widget.Button;
 
 public class GuardActivity extends AppCompatActivity {
 
-    private Button Gregister;
-    private Button Glogin;
+    private Button gregister;
+    private Button glogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guard);
 
-        Gregister    = findViewById(R.id.Gregister);
-        Glogin       = findViewById(R.id.Glogin);
+        gregister    = findViewById(R.id.Gregister);
+        glogin       = findViewById(R.id.Glogin);
 
-        Gregister.setOnClickListener(new View.OnClickListener() {
+        gregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(GuardActivity.this, GuardRegisterAcivity.class));
-                finish();
             }
         });
 
-        Glogin.setOnClickListener(new View.OnClickListener() {
+        glogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(GuardActivity.this, GuardLoginActivity.class));
-                finish();
             }
         });
     }

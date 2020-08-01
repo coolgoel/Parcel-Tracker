@@ -15,10 +15,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class StudentLoginActivity extends AppCompatActivity {
 
-    private EditText s_webmail;
-    private EditText s_roll;
+    private EditText webmail;
+    private EditText roll;
 
-    private Button s_login;
+    private Button login;
 
     private FirebaseAuth auth;
     @Override
@@ -26,17 +26,17 @@ public class StudentLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_login);
 
-        s_webmail       = findViewById(R.id.s_login_email);
-        s_roll          = findViewById(R.id.s_login_roll);
-        s_login      = findViewById(R.id.slogin);
+        webmail     = findViewById(R.id.s_login_email);
+        roll        = findViewById(R.id.s_login_roll);
+        login       = findViewById(R.id.s_login);
 
-        auth = FirebaseAuth.getInstance();
+        auth        = FirebaseAuth.getInstance();
 
-        s_login.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = s_webmail.getText().toString().toLowerCase();
-                String pass = s_roll.getText().toString();
+                String email    = webmail.getText().toString().toLowerCase();
+                String pass     = roll.getText().toString();
 
                 login_user(email, pass);
             }

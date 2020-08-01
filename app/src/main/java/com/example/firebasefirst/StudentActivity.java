@@ -17,14 +17,13 @@ public class StudentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
 
-        sregsiter = findViewById(R.id.SRegister);
-        slogin = findViewById(R.id.SLogin);
+        sregsiter = findViewById(R.id.Sregister);
+        slogin = findViewById(R.id.Slogin);
 
         sregsiter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(StudentActivity.this, StudentRegisterActivity.class));
-                finish();
             }
         });
 
@@ -32,7 +31,6 @@ public class StudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(StudentActivity.this, StudentLoginActivity.class));
-                finish();
             }
         });
     }
